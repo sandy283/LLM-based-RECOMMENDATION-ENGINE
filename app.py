@@ -10,6 +10,9 @@ def download_folder_from_drive(folder_id, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     gdown.download_folder(f"https://drive.google.com/drive/folders/{folder_id}", output=output_dir, quiet=False)
 
+from huggingface_hub import login
+login("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")
+
 # Download the specified folder
 folder_id = '1LUCcx8C8U_19O7dlcjSzE8-NEg_8gDlb'
 output_directory = 'downloaded/'
