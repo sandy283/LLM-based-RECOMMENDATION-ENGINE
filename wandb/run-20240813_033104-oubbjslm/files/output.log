@@ -1,0 +1,4 @@
+c:\Users\sandeep sharma\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\utils\checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+max_steps is given, it will override any value given in num_train_epochs
+{'loss': 1.0798, 'grad_norm': 11.576071739196777, 'learning_rate': 1.5625e-05, 'epoch': 0.5}
