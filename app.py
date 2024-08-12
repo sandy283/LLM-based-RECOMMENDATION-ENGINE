@@ -1,7 +1,19 @@
+import gdown
+import os
 import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import PeftModel
+
+# Function to download a folder from Google Drive
+def download_folder_from_drive(folder_id, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    gdown.download_folder(f"https://drive.google.com/drive/folders/{folder_id}", output=output_dir, quiet=False)
+
+# Download the specified folder
+folder_id = '1LUCcx8C8U_19O7dlcjSzE8-NEg_8gDlb'
+output_directory = 'downloaded/'
+download_folder_from_drive(folder_id, output_directory)
 
 # Load the model and tokenizer
 @st.cache_resource
@@ -22,10 +34,11 @@ def load_model():
     )
     
     eval_tokenizer = AutoTokenizer.from_pretrained(base_model_id, add_bos_token=True, trust_remote_code=True)
-    ft_model = PeftModel.from_pretrained(base_model, "mistral-finetune/checkpoint-5")
+    ft_model = PeftModel.from_pretrained(base_model, "downloaded/checkpoint-5")
     
     return ft_model, eval_tokenizer
 
+# Load the model and tokenizer
 ft_model, eval_tokenizer = load_model()
 
 # Streamlit app layout
