@@ -1,0 +1,5 @@
+gdown
+streamlit
+torch>=1.13.0
+transformers>=4.24.0
+peft
